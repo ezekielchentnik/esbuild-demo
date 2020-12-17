@@ -1,11 +1,14 @@
 {
-    "scripts": {
-        "build": "esbuild App.jsx --bundle --outfile=out.js",
-        "run": "node out.js"
-    },
-    "dependencies": {
-        "esbuild": "^0.8.23",
-        "react": "^17.0.1",
-        "react-dom": "^17.0.1"
-    }
+  "scripts": {
+    "start": "http-server public -c0 -g -b -o & onchange '**/*' -i -e 'public' -- npm run build",
+    "build": "rm -rf public && cp -r static public && esbuild  --define:process.env.NODE_ENV=\\\"production\\\" App.jsx --bundle --outdir=public --sourcemap --format=iife --minify",
+    "serve": "http-server public -c3600 -g -b"
+  },
+  "dependencies": {
+    "esbuild": "^0.8.23",
+    "http-server": "^0.12.3",
+    "onchange": "^7.1.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
 }

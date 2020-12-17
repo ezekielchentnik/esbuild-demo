@@ -1,5 +1,9 @@
-import * as React from 'react'
-import * as Server from 'react-dom/server'
+// Libraries
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-let Greet = () => <h1>Hello, world!</h1>
-console.log(Server.renderToString(<Greet />))
+const App = () => <h1>Hello, world!</h1>
+
+ReactDOM.render(<App/>, document.getElementById("app-root"));
+
+// cheers!
